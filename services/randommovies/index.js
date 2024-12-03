@@ -14,7 +14,7 @@ app.use(logger);
 
 app.get('/api/random-movies', async (req, res, next) => {
   try {
-    const count = parseInt(req.query.count) || 2;
+    const count = parseInt(req.query.count) || 7;
     const response = await axios.get('http://movieprovider:4000/api/movies');
     const randomMovies = getRandomMovies(response.data, count);
     res.json(randomMovies);

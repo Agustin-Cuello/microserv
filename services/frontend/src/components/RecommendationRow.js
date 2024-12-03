@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "../axios";
 import "./Row.css";
-import Recommendations from "./RecommendationRow";
-
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 
-function Row({ title, fetchUrl, isLargeRow }) {
+function Recommendations({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
   const [showDescription, setDescription] = useState("");
   const [showTitle, setTitle] = useState("");
@@ -71,7 +69,6 @@ function Row({ title, fetchUrl, isLargeRow }) {
           <div>Description: {showDescription}</div>
         </div>
       )}
-      <Recommendations />
     </div>
   );
 }
