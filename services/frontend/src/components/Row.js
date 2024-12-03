@@ -29,8 +29,8 @@ function Row({ title, fetchUrl, isLargeRow }) {
     setTitle(movie.title);
     setClickCount(clickCount + 1);
     if (clickCount % 3 === 0) {
-      const request = await axios.get("http://localhost:3500/api/recommendation");
-      setMovies((prevMovies) => [...prevMovies, ...request.data]);
+      const recommendationRequest = await axios.get("http://localhost:3500/api/recommendation");
+      setMovies((prevMovies) => [...prevMovies, ...recommendationRequest.data]);
     }
   };
 
