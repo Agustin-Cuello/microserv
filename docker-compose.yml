@@ -1,0 +1,31 @@
+
+services:
+  randommovies:
+    build:
+      context: ./services/randommovies
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    depends_on:
+      - movieprovider
+
+  movieprovider:
+    build:
+      context: ./services/movieprovider
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+
+
+  frontend:
+    build:
+      context: ./services/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000

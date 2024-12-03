@@ -1,0 +1,15 @@
+{
+  "name": "express-microservices",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:service1": "node services/service1/index.js",
+    "start:service2": "node services/service2/index.js",
+    "start:service3": "node services/service3/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.2",
+    "cors": "^2.8.5"
+  }
+}

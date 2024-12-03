@@ -1,0 +1,4 @@
+node_modules
+services/movieprovider/node_modules
+services/randommovies/node_modules
+services/frontend/node_modules
