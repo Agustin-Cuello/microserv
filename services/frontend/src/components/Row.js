@@ -12,8 +12,8 @@ function Row({ title, fetchUrl, isLargeRow }) {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(fetchUrl);
-      setMovies(request.data.results);
+      const request = await axios.get("http://localhost:3000/api/random-movies");
+      setMovies(request.data);
       return request;
     }
     fetchData();

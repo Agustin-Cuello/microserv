@@ -20,9 +20,9 @@ mongoose.connect(process.env.MONGODB_URI);
 const movieSchema = new mongoose.Schema({
   id: String,
   title: String,
-  description: String,
-  poster: String,
-  genre: [String]
+  overview: String,
+  poster_path: String,
+  genre_ids: [Number]
 });
 
 const Movie = mongoose.model('Movie', movieSchema);

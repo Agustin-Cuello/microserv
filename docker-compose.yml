@@ -57,6 +57,8 @@ services:
     build: ./services/mongo-seed
     depends_on:
       - mongodb
+    volumes: 
+      - ./services/mongo-seed:/docker-entrypoint-initdb.d
 
 volumes:
   mongodb_data:
