@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "../axios";
 import "./Row.css";
-import Recommendations from "./RecommendationRow";
-
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 
@@ -10,6 +8,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
   const [showDescription, setDescription] = useState("");
   const [showTitle, setTitle] = useState("");
+  const [clickCount, setClickCount] = useState(0);
 
 
   useEffect(() => {
@@ -21,14 +20,6 @@ function Row({ title, fetchUrl, isLargeRow }) {
     fetchData();
   }, [fetchUrl]);
 
-  const opts = {
-    height: "390",
-    width: "100%",
-    playerVars: {
-      autoplay: 1,
-    },
-  };
-
   const handleClick = async (movie  ) => {
     // Aqui debería registrarse el historial, con movie.id
     // Por ejemplo: axios.get("http://localhost:3001/historial/nuevo/"+movie.id);
@@ -36,6 +27,11 @@ function Row({ title, fetchUrl, isLargeRow }) {
     console.log(response);
     setDescription(movie.overview);
     setTitle(movie.title);
+    setClickCount(clickCount + 1);
+    if (clickCount % 3 === 0) {
+      const request = await axios.get("http://localhost:3500/api/recommendation");
+      setMovies((prevMovies) => [...prevMovies, ...request.data]);
+    }
   };
 
   // Datos a mostrar (TMDB):
@@ -65,13 +61,13 @@ function Row({ title, fetchUrl, isLargeRow }) {
             )
         )}
       </div>
+      
       {showTitle && (
         <div className="trailer-box">
           <div>Movie: {showTitle}</div>
           <div>Description: {showDescription}</div>
         </div>
       )}
-      <Recommendations />
     </div>
   );
 }

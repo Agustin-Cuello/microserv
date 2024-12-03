@@ -1,3 +1,6 @@
+body {
+  overflow: scroll;
+}
 .row {
   color: white;
   margin-left: 20px;
@@ -7,9 +10,6 @@
   overflow-y: hidden;
   overflow-x: scroll;
   padding: 20px;
-}
-.row__posters::-webkit-scrollbar {
-  display: none;
 }
 .row__poster {
   object-fit: contain;
