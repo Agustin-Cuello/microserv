@@ -30,6 +30,7 @@ services:
       - PORT=5000
   
   history:
+    container_name: history
     build: ./services/history
     ports:
       - "3003:3003"
@@ -51,7 +52,6 @@ services:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
-      - ./services/movieprovider/seed:/docker-entrypoint-initdb.d
       
   mongo-seed:
     build: ./services/mongo-seed

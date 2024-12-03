@@ -30,6 +30,8 @@ function Row({ title, fetchUrl, isLargeRow }) {
   const handleClick = async (movie, isLargeRow) => {
     // Aqui debería registrarse el historial, con movie.id
     // Por ejemplo: axios.get("http://localhost:3001/historial/nuevo/"+movie.id);
+    let response = await axios.get("http://localhost:3003/record/"+movie.id);
+    console.log(response);
     if (trailerUrl) {
       setTrailerUrl("");
     } else if (!isLargeRow) {

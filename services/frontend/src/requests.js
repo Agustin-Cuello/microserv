@@ -8,6 +8,7 @@ const requests = {
   fetchComedyMovies: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
   fetchStarWars: `find/tt2527338?api_key=${API_KEY}&language=en-US&external_source=imdb_id`,
   fetchFake: "https://dcm-uns.github.io/pelicula.js",
+  fetchHistory: "https://history/record/",
   fetchFakeComentario: "https://dcm-uns.github.io/comentario.js"
 };
 export default requests;
