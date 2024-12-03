@@ -29,3 +29,20 @@ services:
       - "5000:5000"
     environment:
       - PORT=5000
+
+  
+  history:
+    build: ./history
+    ports:
+      - "3003:3003"
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq
+      - PORT=3003
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"

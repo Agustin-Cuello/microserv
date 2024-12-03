@@ -28,10 +28,3 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Random Movies Service listening on port ${PORT}`);
 });
-
-git init
-git add *
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Agustin-Cuello/microserv.git
-git push -u origin main

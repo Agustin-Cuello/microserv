@@ -12,10 +12,8 @@ function App() {
     <div className="App">
       <Nav />
       <Banner /> 
-      <Comentario fetchUrl={requests.fetchFakeComentario} />
-      <UnaPelicula fetchUrl={requests.fetchFake}/>
-      <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
-      <Row title="Comedias" fetchUrl={requests.fetchComedyMovies} />
+      <Row title="Películas para ver" fetchUrl={requests.fetchTrending} />
+      <Row title="Recomendaciones" fetchUrl={requests.fetchComedyMovies} />
     </div>
   );
 }
